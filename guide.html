@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Adding dependencies – haskell-flake
+    Guide – haskell-flake
   </title>
   
     
-      <meta property='og:description' content='There are several libraries from Hackage that you can use in your Haskell project nixified using haskell-flakea. The general steps to do this are:' />
+      <meta property='og:description' content />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Adding dependencies' />
+      <meta property='og:title' content='Guide' />
     
     
       <base href='/' />
@@ -262,15 +262,6 @@
               </svg>
             </li>
           
-            <li class='inline-flex items-center'>
-              <a class='px-1 font-bold' href='guide'>
-                Guide
-              </a>
-              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
-                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
-              </svg>
-            </li>
-          
         
       </ul>
     </div>
@@ -340,11 +331,7 @@
             
               <!-- Variable bindings for this tree-->
   
-    
-      
-      
-    
-
+  
 
 
   
@@ -362,7 +349,7 @@
       </svg>
       
   
-    <a class='font-bold hover:underline truncate' title='Guide' href='guide'>
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Guide' href='guide'>
       Guide
     </a>
     
@@ -376,7 +363,9 @@
     
       <!-- Variable bindings for this tree-->
   
+    
   
+
 
 
   
@@ -389,23 +378,23 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
         </path>
       </svg>
-      
+    
   
-    <a class='font-bold text-purple-600 hover:underline truncate' title='Adding dependencies' href='dependency'>
+    <a class='hover:underline truncate' title='Adding dependencies' href='dependency'>
       Adding dependencies
     </a>
     
       
+        
+    
   </div>
 
   <!-- Node's children forest, displayed only on active trees
     TODO: Use <details> to toggle visibility?
   -->
-  
-    
   
 </div>
     
@@ -458,94 +447,36 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Adding dependencies
+    Guide
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
-  
+  <nav>
+  <div class='mb-8'>
+    <header data-nosnippet class='pb-2 mb-2 font-semibold text-gray-600'>
+      Pages matching path './*'
+    </header>
+    <ul>
+      
+        <li>
+          <div class='flex flex-wrap my-2'>
+            
+              <span data-nosnippet class='mr-2 text-right text-gray-600'>
+              </span>
+            
+            <a class='flex-1 text-purple-600 mavenLinkBold border-l-2 pl-2 hover:underline' href='dependency'>
+              Adding dependencies
+            </a>
+          </div>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
     <p class='mb-3'>
-      There are several libraries from <a href='https://hackage.haskell.org/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Hackage</a> that you can use in your Haskell project nixified using haskell-flakea. The general steps to do this are:
+      
     </p>
-  
-    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
-      
-        <li>
-          Identify the package name from Hackage. Let’s say you want to use <a href='https://hackage.haskell.org/package/ema' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>ema</code></a>
-        </li>
-      
-        <li>
-          Add the package, <code class='py-0.5 px-0.5 bg-gray-100'>ema</code>, to the <code class='py-0.5 px-0.5 bg-gray-100'>.cabal</code> file under <a href='https://cabal.readthedocs.io/en/3.4/cabal-package.html#pkg-field-build-depends' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>the <code class='py-0.5 px-0.5 bg-gray-100'>build-depends</code> section</a>.
-        </li>
-      
-        <li>
-          Exit and restart the nix shell (<code class='py-0.5 px-0.5 bg-gray-100'>nix develop</code>).
-        </li>
-      
-    </ul>
-  
-    <p class='mb-3'>
-      Step (3) above will try to fetch the package from the Haskell package set in <a href='https://github.com/NixOS/nixpkgs' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> (the one that is pinned in <code class='py-0.5 px-0.5 bg-gray-100'>flake.lock</code>), and this package set (which is ultimately derived from Stackage sets) sometimes may not have the package you are looking for. A common reason is that it is marked as “broken” or it simply doesn’t exist. In such cases, you will have to override the package in the <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> argument (see the next section).
-    </p>
-  <h2 id='overriding-a-haskell-package-in-nix' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Overriding a Haskell package in Nix</h2>
-    <p class='mb-3'>
-      In Nix, it is possible to use an exact package built from an arbitrary source (Git repo or local directory). If you want to use the <code class='py-0.5 px-0.5 bg-gray-100'>master</code> branch of the <a href='https://hackage.haskell.org/package/ema' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>ema</a> library, for instance, you can do it as follows:
-    </p>
-  
-    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
-      
-        <li>
-          Add a flake input pointing to the ema Git repo in <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code>:<div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
-  inputs = {
-    ema = {
-      url = "github:EmaApps/ema";
-      flake = false;
-    };
-  };
-}</code></pre></div>
-        </li>
-      
-        <li>
-          Build it using <code class='py-0.5 px-0.5 bg-gray-100'>callCabal2nix</code> and assign it to the <code class='py-0.5 px-0.5 bg-gray-100'>ema</code> name in the Haskell package set by adding it to the <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> argument of your <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> that is using haskell-flake:<div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
-  perSystem = { self', config, pkgs, ... }: {
-    haskellProjects.default = {
-      overrides = self: super: with pkgs.haskell.lib; {
-        ema = dontCheck (self.callCabal2nix "ema" inputs.ema {}); 
-      };
-    };
-  };
-}</code></pre></div>We use <code class='py-0.5 px-0.5 bg-gray-100'>dontCheck</code> here to disable running tests. You can also use <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code> instead of <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code>.
-        </li>
-      
-        <li>
-          Re-run the nix shell (<code class='py-0.5 px-0.5 bg-gray-100'>nix develop</code>).
-        </li>
-      
-    </ul>
-  <h2 id='pkgshaskelllib-functions' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'><code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.lib</code> functions</h2>
-    <ul class='my-3 ml-6 space-y-1 list-disc'>
-      
-        <li>
-          
-    <svg xmlns='http://www.w3.org/2000/svg' class='inline h-4 w-4 mb-1 text-gray-600 stroke-current' fill='none' viewBox='0 0 28 28'><desc>☐</desc><rect stroke-width='3' x='2' y='2' width='24' height='24' rx='3'></rect></svg>
-<span>
-  
-      Write about <a href='https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/lib/compose.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/lib/compose.nix</a>
-    
-</span>
-
-  
-        </li>
-      
-    </ul>
-  <h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See also</h2>
-    <ul class='my-3 ml-6 space-y-1 list-disc'>
-      
-        <li>
-          <a href='https://tek.brick.do/how-to-override-dependency-versions-when-building-a-haskell-project-with-nix-K3VXJd8mEKO7' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Artyom’s tutorial</a>
-        </li>
-      
-    </ul>
   
 
   <!-- What goes in this file will appear below the note body-->
@@ -553,6 +484,28 @@
             <div class='flex flex-col lg:flex-row lg:space-x-2'>
               
               
+  <div class='flex-1 p-4 mt-8 bg-gray-100 rounded'>
+    <header class='mb-2 text-xl font-semibold text-gray-500'>Links to this page</header>
+    <ul class='space-y-1'>
+      
+        <li>
+          <a class='text-purple-600 mavenLinkBold hover:bg-purple-50' href=''>
+            haskell-flake
+          </a>
+          
+            <div class='mb-4 overflow-auto text-sm text-gray-500'>
+  
+    <div class='pl-2 mt-2 border-l-2 border-purple-200 hover:border-purple-500'>
+      <div><p>Start from <a href='guide' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Guide</a> or the <a href='https://flake.parts/options/haskell-flake.html' class='text-gray-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>module options</a>.</p></div>
+    </div>
+  
+</div>
+          
+        </li>
+      
+    </ul>
+  </div>
+
             </div>
             
   <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
