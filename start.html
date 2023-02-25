@@ -9,7 +9,7 @@
   </title>
   
     
-      <meta property='og:description' content='To use haskell-flake in your existing Haskell projects, run:' />
+      <meta property='og:description' content='Before using haskell-flake you must first install Nix and enable flakes.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=17214028-9f3a-4f49-b96c-df93da0cc652' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=dfe51e98-80c7-40e1-b2a9-fbd8bfb6597c' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -497,17 +497,25 @@
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      To use <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> in your <em>existing</em> Haskell projects, run:
+      Before using <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> you must first <a href='https://nixos.org/download.html' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>install Nix</a> and <a href='https://nixos.wiki/wiki/Flakes#Enable_flakes' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>enable flakes</a>.
+    </p>
+  <h2 id='existing-projects' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Existing projects</h2>
+    <p class='mb-3'>
+      To use <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> in an <em>existing</em> Haskell project, run:
     </p>
   <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>nix flake init -t github:srid/haskell-flake</code></pre></div>
     <p class='mb-3'>
-      To create a <em>new</em> Haskell project, run:
+      Open the generated <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> and change <code class='py-0.5 px-0.5 bg-gray-100'>self'.packages.example</code> to use your package name. For example, if your package is named <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code> (with a <code class='py-0.5 px-0.5 bg-gray-100'>my-package.cabal</code> file), change <code class='py-0.5 px-0.5 bg-gray-100'>example</code> to <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code>.
+    </p>
+  <h2 id='new-projects' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>New projects</h2>
+    <p class='mb-3'>
+      To create a <em>new</em> Haskell project, instead, run:
     </p>
   <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>nix flake init -t github:srid/haskell-flake#example</code></pre></div><h3 id='template' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Template</h3>
     <p class='mb-3'>
       You may also use <a href='https://github.com/srid/haskell-template' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/haskell-template</a> which already uses <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> along with other opinionated defaults.
     </p>
-  
+  <h2 id='next-steps' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Next steps</h2>
     <p class='mb-3'>
       Visit <a href='guide' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>Guide</a> for more details, and <a href='ref' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>Reference</a> for module options.
     </p>
