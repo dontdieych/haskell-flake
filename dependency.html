@@ -9,7 +9,7 @@
   </title>
   
     
-      <meta property='og:description' content='There are several libraries from Hackage that you can use in your Haskell project nixifiednixified using haskell-flake. nixpkgs already provides many of these, but you can also override them or specify your own library. The general steps to do this are:' />
+      <meta property='og:description' content='Haskell libraries ultimately come from Hackage, and nixpkgs contains most of these. Adding a library to your project is done as follows (requiring no change to Nix!):' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=d9d99dcf-a9c9-4e3e-a361-da7e9fec13d4' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=0f1ec3dc-f045-4403-a43a-17263715bdc2' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -342,6 +342,42 @@
   
     
       
+      
+    
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-700' viewBox='0 0 20 20' fill='currentColor'>
+        <path fill-rule='evenodd' d='M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z' clip-rule='evenodd'></path>
+        <path d='M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z'></path>
+      </svg>
+      
+  
+    <a class='font-bold hover:underline truncate' title='Getting Started' href='start'>
+      Getting Started
+    </a>
+    
+      
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+      
     
     
 
@@ -362,8 +398,8 @@
       </svg>
     
   
-    <a class='hover:underline truncate' title='Getting Started' href='start'>
-      Getting Started
+    <a class='hover:underline truncate' title='Install Nix' href='start/nix'>
+      Install Nix
     </a>
     
       
@@ -373,6 +409,9 @@
     TODO: Use <details> to toggle visibility?
   -->
   
+    
+  
+</div>
     
   
 </div>
@@ -506,7 +545,7 @@
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      There are several libraries from <a href='https://hackage.haskell.org/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Hackage</a> that you can use in your Haskell project <a href='start' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>nixified</a> using haskell-flake. nixpkgs already provides <a href='https://nixpkgs.haskell.page/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>many of these</a>, but you can also override them or specify your own library. The general steps to do this are:
+      Haskell libraries ultimately come from <a href='https://hackage.haskell.org/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Hackage</a>, and <a href='https://zero-to-nix.com/concepts/nixpkgs' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> contains <a href='https://nixpkgs.haskell.page/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>most of these</a>. Adding a library to your project is done as follows (requiring no change to Nix!):
     </p>
   
     <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
@@ -526,7 +565,7 @@
     </ul>
   
     <p class='mb-3'>
-      Step (3) above will try to fetch the package from the Haskell package set in <a href='https://github.com/NixOS/nixpkgs' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> (the one that is pinned in <code class='py-0.5 px-0.5 bg-gray-100'>flake.lock</code>), and this package set (which is ultimately derived from Stackage sets) sometimes may not have the package you are looking for. A common reason is that it is marked as “broken” or it simply doesn’t exist. In such cases, you will have to override the package in the <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> argument (see the next section).
+      Step (3) above will try to fetch the package from the Haskell package set in <a href='https://zero-to-nix.com/concepts/nixpkgs' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> (the one that is pinned in <code class='py-0.5 px-0.5 bg-gray-100'>flake.lock</code>). For various reasons, this package may be either broken or does not exist. In such cases, you will have to override the package in the <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> argument (see the next section).
     </p>
   <h2 id='overriding-a-haskell-package-in-nix' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Overriding a Haskell package in Nix</h2>
     <p class='mb-3'>
@@ -561,26 +600,50 @@
         </li>
       
     </ul>
-  <h2 id='nixpkgs-functions' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>nixpkgs functions</h2>
-    <p class='mb-3'>
-      The <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.lib</code> module provides various utility functions (like <code class='py-0.5 px-0.5 bg-gray-100'>dontCheck</code> above, to disable running tests) that you can use to override Haskell packages. The canonical place to find documentation on these is <a href='https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/lib/compose.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>the source</a>.
-    </p>
-  <h2 id='other-ways-of-specifying-dependencies' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Other ways of specifying dependencies</h2>
+  <h3 id='nixpkgs-functions' class='mt-6 mb-2 text-3xl font-bold text-gray-700'><a href='https://zero-to-nix.com/concepts/nixpkgs' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> functions</h3>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
-          <code class='py-0.5 px-0.5 bg-gray-100'>self.callHackage</code> - Build a library from Hackage given its version.
+          The <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.lib</code> module provides various utility functions (like <code class='py-0.5 px-0.5 bg-gray-100'>dontCheck</code> above, to disable running tests) that you can use to override Haskell packages. The canonical place to find documentation on these is <a href='https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/lib/compose.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>the source</a>.
         </li>
       
-    </ul>
-  <h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See also</h2>
-    <ul class='my-3 ml-6 space-y-1 list-disc'>
+        <li>
+          <code class='py-0.5 px-0.5 bg-gray-100'>self.callHackage</code> - Build a library from Hackage given its version. You can also do this with <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code> (see below).
+        </li>
       
         <li>
           <a href='https://tek.brick.do/how-to-override-dependency-versions-when-building-a-haskell-project-with-nix-K3VXJd8mEKO7' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Artyom’s tutorial</a>
         </li>
       
     </ul>
+  <h2 id='using-source-overrides' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Using <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code></h2>
+    <p class='mb-3'>
+      If you are only specifying the source of the Haskell package, but are not overriding anything else, you may use the simpler <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code> option instead. The above example would look like:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  perSystem = { self', config, pkgs, ... }: {
+    haskellProjects.default = {
+      source-overrides = {
+        ema = inputs.ema;
+      };
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code> also supports specifying referring directly to a Hackage version. So the following works to pull <a href='https://hackage.haskell.org/package/ema-0.8.2.0' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>ema 0.8.2.0</a>:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  perSystem = { self', config, pkgs, ... }: {
+    haskellProjects.default = {
+      source-overrides = {
+        ema = "0.8.2.0";
+      };
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      If you are using both the options, <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> take priority over <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code>.
+    </p>
   
 
   <!-- What goes in this file will appear below the note body-->
