@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=b1797bb2-ade6-43f7-9dbe-53ef525e55f6' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=eb373730-2623-4b9b-a366-f0a3839dafe1' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -639,7 +639,7 @@
   };
 }</code></pre></div>
     <p class='mb-3'>
-      You can access this package set as <code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.finalPackages</code>. But this is not terribly interesting, because it is the exact same as the package set <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.packages.ghc8107</code> from nixpkgs. So let’s add and override some packages in this set:
+      You can access this package set as <code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.outputs.finalPackages</code>. But this is not terribly interesting, because it is the exact same as the package set <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.packages.ghc8107</code> from nixpkgs. So let’s add and override some packages in this set:
     </p>
   <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
   haskellProjects.ghc810 = {
@@ -665,13 +665,13 @@
     </p>
   
     <p class='mb-3'>
-      In your <em>actual</em> haskell project, you can use this package set (<code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.finalPackages</code>) as its base package set:
+      In your <em>actual</em> haskell project, you can use this package set (<code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.outputs.finalPackages</code>) as its base package set:
     </p>
   <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
   haskellProjects.myproject = {
     packages.mypackage = ./.;
 
-    basePackages = config.haskellProjects.ghc810.finalPackages;
+    basePackages = config.haskellProjects.ghc810.outputs.finalPackages;
   };
 }</code></pre></div>
     <p class='mb-3'>
