@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Install Nix – haskell-flake
+    Creating package sets – haskell-flake
   </title>
   
     
-      <meta property='og:description' content='To install Nix, follow the instructions at https://github.com/DeterminateSystems/nix-installer#the-determinate-nix-installer' />
+      <meta property='og:description' content='While haskell-flake is generally used to develop and build individual Haskell projects, you can also use it to create a custom Haskell packaage set that you can use in other projects. This is useful if you want to create a common package set to be shared across multiple projects.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Install Nix' />
+      <meta property='og:title' content='Creating package sets' />
     
     
       <base href='/' />
@@ -263,8 +263,8 @@
             </li>
           
             <li class='inline-flex items-center'>
-              <a class='px-1 font-bold' href='start'>
-                Getting Started
+              <a class='px-1 font-bold' href='guide'>
+                Guide
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -376,7 +376,11 @@
     
       <!-- Variable bindings for this tree-->
   
-  
+    
+      
+    
+    
+
 
 
   
@@ -389,12 +393,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
         </path>
       </svg>
-      
+    
   
-    <a class='font-bold text-purple-600 hover:underline truncate' title='Install Nix' href='nix'>
+    <a class='hover:underline truncate' title='Install Nix' href='nix'>
       Install Nix
     </a>
     
@@ -528,11 +532,7 @@
     
       <!-- Variable bindings for this tree-->
   
-    
-      
-    
-    
-
+  
 
 
   
@@ -545,12 +545,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
         </path>
       </svg>
-    
+      
   
-    <a class='hover:underline truncate' title='Creating package sets' href='package-set'>
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Creating package sets' href='package-set'>
       Creating package sets
     </a>
     
@@ -616,55 +616,75 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Install Nix
+    Creating package sets
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      To install Nix, follow the instructions at <a href='https://github.com/DeterminateSystems/nix-installer#the-determinate-nix-installer' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/DeterminateSystems/nix-installer#the-determinate-nix-installer</a>
+      While haskell-flake is generally used to develop and build individual Haskell projects, you can also use it to create a custom Haskell packaage set that you can use in other projects. This is useful if you want to create a common package set to be shared across multiple projects.
     </p>
   
     <p class='mb-3'>
-      This installer automatically <a href='https://nixos.wiki/wiki/Flakes#Enable_flakes' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>enable flakes</a>. If you are on macOS, make sure to use the native (not rosetta) terminal.
-    <sup class='px-0.5'>
-      <a class='text-purple-600 hover:underline' href='nix#fn1'>
-        1
-      </a>
-    </sup>
-  
+      A “project” in haskell-flake primarily serves the purpose of developing Haskell projects. Additionally, a project also exposes the final <em>package set</em> via the readonly option <code class='py-0.5 px-0.5 bg-gray-100'>outputs.finalPackages</code>. This package set includes the base packages (<code class='py-0.5 px-0.5 bg-gray-100'>basePackages</code>), the local packages as well as any <a href='dependency' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>dependency overrides</a> you set. Since we are are only interested in creating a new package set, we can use empty local packages and disable the dev shell:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  haskellProjects.ghc810 = {
+    packages = {};  # No local packages
+    devShell.enable = false;
+
+    # Start from nixpkgs's ghc8107 package set
+    basePackages = pkgs.haskell.packages.ghc8107;
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      You can access this package set as <code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.finalPackages</code>. But this is not terribly interesting, because it is the exact same as the package set <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.packages.ghc8107</code> from nixpkgs. So let’s add and override some packages in this set:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  haskellProjects.ghc810 = {
+    packages = {};  # No local packages
+    devShell.enable = false;
+
+    basePackages = pkgs.haskell.packages.ghc8107;
+
+    source-overrides = {
+      # New packages from flake inputs
+      mylib = inputs.mylib;
+      # Dependencies from Hackage
+      aeson = "1.5.6.0";
+      dhall = "1.35.0";
+    };
+    overrides = self: super: with pkgs.haskell.lib; {
+       aeson = doJailbreak super.aeson;
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      This will create a package set that overrides the <code class='py-0.5 px-0.5 bg-gray-100'>aeson</code> and <code class='py-0.5 px-0.5 bg-gray-100'>dhall</code> packages using the specified versions from Hackage, but with the <code class='py-0.5 px-0.5 bg-gray-100'>aeson</code> package having the <code class='py-0.5 px-0.5 bg-gray-100'>doJailbreak</code> flag set (which relaxes its Cabal constraints). It also adds the <code class='py-0.5 px-0.5 bg-gray-100'>mylib</code> package which exists neither in nixpkgs nor in Hackage, but comes from somewhere arbitrary and specified as flake input.
     </p>
   
     <p class='mb-3'>
-      To test your Nix install, run:
+      In your <em>actual</em> haskell project, you can use this package set (<code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.finalPackages</code>) as its base package set:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>nix run nixpkgs#hello</code></pre></div><h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See also</h2>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  haskellProjects.myproject = {
+    packages.mypackage = ./.;
+
+    basePackages = config.haskellProjects.ghc810.finalPackages;
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      Finally you can externalized this <code class='py-0.5 px-0.5 bg-gray-100'>ghc810</code> package set as either a flake-parts module or as a <a href='modules' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>haskell-flake module</a>, and import it in multiple repositories.
+    </p>
+  <h2 id='examples' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Examples</h2>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
-          <a href='https://nixos.org/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>NixOS</a>, a Linux distro based on the Nix package manager.
-        </li>
-      
-        <li>
-          <a href='https://github.com/LnL7/nix-darwin' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nix-darwin</a>, replaces homebrew and the like on macOS, using Nix.
+          <a href='https://github.com/nammayatri/common/pull/3/files' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/nammayatri/common/pull/3/files</a>
         </li>
       
     </ul>
-  
-    <div title='Footnotes' class='pt-2 mt-8 space-y-1 text-gray-500 transform scale-x-90 border-t-2'>
-      <header class='font-semibold'>Footnotes</header>
-      
-        <div id='fn1'>
-          <header class='italic'>
-            1.
-          </header>
-          <div class='inline-block mb-2 ml-4'>
-            Use the <code class='py-0.5 px-0.5 bg-gray-100'>sysctl -n sysctl.proc_translated</code> command to check this. <a href='https://stackoverflow.com/a/67690510/55246' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Ref</a>
-          </div>
-        </div>
-      
-    </div>
   
 
   <!-- What goes in this file will appear below the note body-->
@@ -672,28 +692,6 @@
             <div class='flex flex-col lg:flex-row lg:space-x-2'>
               
               
-  <div class='flex-1 p-4 mt-8 bg-gray-100 rounded'>
-    <header class='mb-2 text-xl font-semibold text-gray-500'>Links to this page</header>
-    <ul class='space-y-1'>
-      
-        <li>
-          <a class='text-purple-600 mavenLinkBold hover:bg-purple-50' href='start'>
-            Getting Started
-          </a>
-          
-            <div class='mb-4 overflow-auto text-sm text-gray-500'>
-  
-    <div class='pl-2 mt-2 border-l-2 border-purple-200 hover:border-purple-500'>
-      <div><p>Before using <code>haskell-flake</code> you must first <a href='nix' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>install Nix with Flakes enabled</a>.</p></div>
-    </div>
-  
-</div>
-          
-        </li>
-      
-    </ul>
-  </div>
-
             </div>
             
   <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
