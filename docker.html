@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Reference – haskell-flake
+    Building a docker image – haskell-flake
   </title>
   
     
-      <meta property='og:description' content='Documentation on all module options provided by haskell-flake can be found here: https://flake.parts/options/haskell-flake.html' />
+      <meta property='og:description' content='Building a docker image is much simpler with Nix compared to writing Dockerfile. Since the entire build process is handled by Nix flakes, most of what’s left to do for docker image creation is copying of the derivations and configuration.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Reference' />
+      <meta property='og:title' content='Building a docker image' />
     
     
       <base href='/' />
@@ -256,6 +256,15 @@
             <li class='inline-flex items-center'>
               <a class='px-1 font-bold' href=''>
                 haskell-flake
+              </a>
+              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
+                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
+              </svg>
+            </li>
+          
+            <li class='inline-flex items-center'>
+              <a class='px-1 font-bold' href='howto'>
+                HOWTO
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -601,6 +610,44 @@
     
       <!-- Variable bindings for this tree-->
   
+  
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        </path>
+      </svg>
+      
+  
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Building a docker image' href='docker'>
+      Building a docker image
+    </a>
+    
+      
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+    
+  
+</div>
+    
+  
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
     
       
     
@@ -623,45 +670,7 @@
       </svg>
     
   
-    <a class='hover:underline truncate' title='Building a docker image' href='docker'>
-      Building a docker image
-    </a>
-    
-      
-  </div>
-
-  <!-- Node's children forest, displayed only on active trees
-    TODO: Use <details> to toggle visibility?
-  -->
-  
-    
-  
-</div>
-    
-  
-</div>
-            
-              <!-- Variable bindings for this tree-->
-  
-  
-
-
-  
-
-
-<!-- Rendering of this tree -->
-<div class='pl-2'>
-  <!-- Node's rootLabel-->
-  <div class='flex items-center my-2 space-x-2 justify-left'>
-    
-    
-      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
-        </path>
-      </svg>
-      
-  
-    <a class='font-bold text-purple-600 hover:underline truncate' title='Reference' href='ref'>
+    <a class='hover:underline truncate' title='Reference' href='ref'>
       Reference
     </a>
     
@@ -685,19 +694,94 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Reference
+    Building a docker image
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      Documentation on all module options provided by <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> can be found here: <a href='https://flake.parts/options/haskell-flake.html' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://flake.parts/options/haskell-flake.html</a>
+      Building a docker image is much simpler with Nix compared to writing <code class='py-0.5 px-0.5 bg-gray-100'>Dockerfile</code>. Since the entire build process is handled by Nix flakes, most of what’s left to do for docker image creation is copying of the derivations and configuration.
     </p>
-  
+  <h2 id='writing-the-nix-to-build-the-docker-image' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Writing the Nix to build the docker image</h2>
     <p class='mb-3'>
-      For documentation on nixpkgs library of functions, see <a href='https://nixos.org/manual/nixpkgs/unstable/#haskell' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://nixos.org/manual/nixpkgs/unstable/#haskell</a>
+      Consider a haskell-flake project “foo”. To copy the binaries generated by the <code class='py-0.5 px-0.5 bg-gray-100'>default</code> package to <code class='py-0.5 px-0.5 bg-gray-100'>/bin</code> on the image, one can use <code class='py-0.5 px-0.5 bg-gray-100'>copyToRoot</code> attribute offered by <a href='https://nixos.org/manual/nixpkgs/stable/#sec-pkgs-dockerTools' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>dockerTools.buildImage</code></a>. For example:
     </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem
+  packages.dockerImage = pkgs.dockerTools.buildImage {
+    name = "foo";
+    copyToRoot = pkgs.buildEnv {
+      paths = with pkgs; [
+        self'.packages.default
+      ];
+      name = "foo-root";
+      pathsToLink = [ "/bin" ];
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      In addition to copying over the flake <code class='py-0.5 px-0.5 bg-gray-100'>packages</code>, we may also copy <em>paths</em> in the project. <code class='py-0.5 px-0.5 bg-gray-100'>self</code> can be added to <code class='py-0.5 px-0.5 bg-gray-100'>paths</code> to expose the project directory.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  copyToRoot = pkgs.buildEnv {
+    paths = with pkgs; [
+      coreutils
+      bash
+      self
+    ];
+    name = "foo-root";
+    pathsToLink = [ "/foo_sub" "/bin" ];
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      If you’d like your docker image to run your haskell project’s default package when the container starts, use the following config:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside dockerImage's `buildImage`
+  config = {
+    Cmd = [ "${pkgs.lib.getExe self'.packages.default}" ];
+  };
+}</code></pre></div><h2 id='build-the-docker-image' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Build the docker image</h2>
+    <p class='mb-3'>
+      To build the docker image <em>as a Nix derivation</em>, run:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='bash language-bash'>nix build .#dockerImage</code></pre></div>
+    <p class='mb-3'>
+      To load this image into your local docker image registry, run:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='bash language-bash'>docker load -i $(nix build .#dockerImage --print-out-link)</code></pre></div><h2 id='tips' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Tips</h2>
+    <p class='mb-3'>
+      If you don’t want <code class='py-0.5 px-0.5 bg-gray-100'>docker images</code> showing that the image was created several decades ago, use the following:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem.packages' `dockerImage`:
+  pkgs.dockerTools.buildImage {
+    name = "foo";
+    created = "now";
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      If you want to tag the images with the commit id of the working copy:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem.packages' `dockerImage`:
+  pkgs.dockerTools.buildImage {
+    name = "foo";
+    tag = builtins.substring 0 9 (self.rev or "dev");
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      <a href='https://nixos.org/manual/nix/stable/language/builtins.html#builtins-substring' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>builtins.substring 0 9 self.rev</code></a> is the same as <code class='py-0.5 px-0.5 bg-gray-100'>git rev-parse --short HEAD</code>. <code class='py-0.5 px-0.5 bg-gray-100'>self.rev</code> is non-null only on a clean working copy and hence the tag is set to <code class='py-0.5 px-0.5 bg-gray-100'>dev</code> when the working copy is dirty.
+    </p>
+  <h2 id='example' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Example</h2>
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <a href='https://github.com/nammayatri/nammayatri/pull/14/files#diff-18ea3dd9a6a84702796b8dac608d0cad8e396a7c2e8c52732fcb7e5f52d1b0b9' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Sample flake-parts module for docker</a>
+        </li>
+      
+    </ul>
   
 
   <!-- What goes in this file will appear below the note body-->
@@ -705,28 +789,6 @@
             <div class='flex flex-col lg:flex-row lg:space-x-2'>
               
               
-  <div class='flex-1 p-4 mt-8 bg-gray-100 rounded'>
-    <header class='mb-2 text-xl font-semibold text-gray-500'>Links to this page</header>
-    <ul class='space-y-1'>
-      
-        <li>
-          <a class='text-purple-600 mavenLinkBold hover:bg-purple-50' href='start'>
-            Getting Started
-          </a>
-          
-            <div class='mb-4 overflow-auto text-sm text-gray-500'>
-  
-    <div class='pl-2 mt-2 border-l-2 border-purple-200 hover:border-purple-500'>
-      <div><p>Visit <a href='guide' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Guide</a> for more details, and <a href='ref' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Reference</a> for module options.</p></div>
-    </div>
-  
-</div>
-          
-        </li>
-      
-    </ul>
-  </div>
-
             </div>
             
   <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
