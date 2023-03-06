@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=81eb584f-16fb-4b89-a418-23543e80a185' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=4ca5e64b-a0fb-47fc-8952-d097c27da65c' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -742,7 +742,35 @@
     <p class='mb-3'>
       A haskell-flake project module takes the following arguments:
     </p>
-  <table class='mb-3'><thead><tr class='border-b-2 border-t-2 border-gray-300'><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Argument</th><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Description</th></tr></thead><tbody><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>pkgs</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>The perSystem’s <code class='py-0.5 px-0.5 bg-gray-100'>pkgs</code> argument</td></tr><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>self</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>The flake’s <code class='py-0.5 px-0.5 bg-gray-100'>self</code></td></tr></tbody></table><h2 id='examples' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Examples</h2>
+  <table class='mb-3'><thead><tr class='border-b-2 border-t-2 border-gray-300'><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Argument</th><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Description</th></tr></thead><tbody><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>pkgs</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>The perSystem’s <code class='py-0.5 px-0.5 bg-gray-100'>pkgs</code> argument</td></tr><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>self</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>The flake’s <code class='py-0.5 px-0.5 bg-gray-100'>self</code></td></tr></tbody></table><h2 id='default-modules' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Default modules</h2>
+    <p class='mb-3'>
+      By default, haskell-flake will generate the following modules for the “default” <code class='py-0.5 px-0.5 bg-gray-100'>haskellProject</code>:
+    </p>
+  <table class='mb-3'><thead><tr class='border-b-2 border-t-2 border-gray-300'><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Module</th><th class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Contents</th></tr></thead><tbody><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>haskellFlakeProjectModules.input</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Dependency overrides only</td></tr><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>haskellFlakeProjectModules.local</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Local packages only</td></tr><tr class='border-b-2 border-t-2 border-gray-300'><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'><code class='py-0.5 px-0.5 bg-gray-100'>haskellFlakeProjectModules.output</code></td><td class='py-2 px-2 align-top border-r-2 border-l-2 border-gray-300'>Local packages & dependency overrides</td></tr></tbody></table>
+    <p class='mb-3'>
+      The idea here being that you can “connect” two Haskell projects such that they depend on one another while reusing the overrides from one place. For example, if you have a project “foo” that depends on “bar” and if “foo”’s flake.nix has “bar” as its input, then in “foo”’s <code class='py-0.5 px-0.5 bg-gray-100'>haskellProject.default</code> entry you can import “bar” as follows:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'># foo's flake.nix's perSystem
+{ 
+  haskellProjects.default = {
+    imports = [
+      inputs.bar.haskellFlakeProjectModules.output
+    ];
+    packages = {
+      foo.root = ./.;
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      By importing “bar”’s <code class='py-0.5 px-0.5 bg-gray-100'>output</code> project module, you automatically get the overrides from “bar” (unless you use the <code class='py-0.5 px-0.5 bg-gray-100'>local</code> module) as well as the local packages
+    <sup class='px-0.5'>
+      <a class='text-purple-600 hover:underline' href='modules#fn1'>
+        1
+      </a>
+    </sup>
+  . This way you don’t have to duplicate the <code class='py-0.5 px-0.5 bg-gray-100'>overrides</code> and manually specify the <code class='py-0.5 px-0.5 bg-gray-100'>source-overrides</code> in “foo”’s flake.nix.
+    </p>
+  <h2 id='examples' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Examples</h2>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
@@ -754,6 +782,20 @@
         </li>
       
     </ul>
+  
+    <div title='Footnotes' class='pt-2 mt-8 space-y-1 text-gray-500 transform scale-x-90 border-t-2'>
+      <header class='font-semibold'>Footnotes</header>
+      
+        <div id='fn1'>
+          <header class='italic'>
+            1.
+          </header>
+          <div class='inline-block mb-2 ml-4'>
+            Local packages come from the <code class='py-0.5 px-0.5 bg-gray-100'>packages</code> option. So this is typically the “bar” package itself for single-package projects; or all the local projects if it is a multi-package project.
+          </div>
+        </div>
+      
+    </div>
   
 
   <!-- What goes in this file will appear below the note body-->
