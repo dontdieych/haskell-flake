@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=fd09863e-f054-43a6-b729-a4d9d7cf0c5e' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=9f6f09d7-b126-4eb8-958a-eb0841b48dde' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -698,15 +698,16 @@
     <p class='mb-3'>
       To use <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> in an <em>existing</em> Haskell project, run:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>nix flake init -t github:srid/haskell-flake</code></pre></div>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>nix flake init -t github:srid/haskell-flake</code></pre></div>
     <p class='mb-3'>
-      Open the generated <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> and change <code class='py-0.5 px-0.5 bg-gray-100'>self'.packages.example</code> to use your package name. For example, if your package is named <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code> (with a <code class='py-0.5 px-0.5 bg-gray-100'>my-package.cabal</code> file), change <code class='py-0.5 px-0.5 bg-gray-100'>example</code> to <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code>.
+      Open the generated <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> and change <code class='py-0.5 px-0.5 bg-gray-100'>self'.packages.example</code> to use your package name. For example, if your package is named <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code> (with a <code class='py-0.5 px-0.5 bg-gray-100'>my-package.cabal</code> file), change <code class='py-0.5 px-0.5 bg-gray-100'>example</code> to <code class='py-0.5 px-0.5 bg-gray-100'>my-package</code>. Follow the comments along the <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> to make any necessary changes to the project configuration.
     </p>
   <h2 id='new-projects' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>New projects</h2>
     <p class='mb-3'>
       To create a <em>new</em> Haskell project, instead, run:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>nix flake init -t github:srid/haskell-flake#example</code></pre></div><h3 id='template' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Template</h3>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>mkdir example && cd ./example
+nix flake init -t github:srid/haskell-flake#example</code></pre></div><h3 id='template' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Template</h3>
     <p class='mb-3'>
       You may also use <a href='https://github.com/srid/haskell-template' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/haskell-template</a> which already uses <code class='py-0.5 px-0.5 bg-gray-100'>haskell-flake</code> along with other opinionated defaults.
     </p>
