@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=dc5f45fd-f156-48bd-9a9f-be94d5c4212a' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=685ec38b-5ec6-499e-a33a-833b0b54c236' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -779,7 +779,16 @@
     <p class='mb-3'>
       <a href='https://nixos.org/manual/nix/stable/language/builtins.html#builtins-substring' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>builtins.substring 0 9 self.rev</code></a> is the same as <code class='py-0.5 px-0.5 bg-gray-100'>git rev-parse --short HEAD</code>. <code class='py-0.5 px-0.5 bg-gray-100'>self.rev</code> is non-null only on a clean working copy and hence the tag is set to <code class='py-0.5 px-0.5 bg-gray-100'>dev</code> when the working copy is dirty.
     </p>
-  <h2 id='example' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Example</h2>
+  <h3 id='ssl-certs' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>SSL certs</h3>
+    <p class='mb-3'>
+      In order to be able to make https connections from inside of the docker image, you must expose the cacert Nix package via an environment variable:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside dockerTools.buildImage
+  config = {
+    Env = [ "SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt" ];
+  };
+}</code></pre></div><h2 id='example' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Example</h2>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
