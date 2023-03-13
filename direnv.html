@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Creating package sets – haskell-flake
+    Using direnv to manage dev environments – haskell-flake
   </title>
   
     
-      <meta property='og:description' content='While haskell-flake is generally used to develop and build individual Haskell projects, you can also use it to create a custom Haskell packaage set that you can use in other projects. This is useful if you want to create a common package set to be shared across multiple projects.' />
+      <meta property='og:description' content='direnv, and nix-direnv in particular, is an important piece of tool you can use to both persist nix devshell environments and to share it automatically with text editors and IDEs. It also obviates having to run nix develop manually every time you open a new terminal. The moment you cd into your project directory, the devshell is automatically activated, thanks to direnv.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Creating package sets' />
+      <meta property='og:title' content='Using direnv to manage dev environments' />
     
     
       <base href='/' />
@@ -263,8 +263,8 @@
             </li>
           
             <li class='inline-flex items-center'>
-              <a class='px-1 font-bold' href='guide'>
-                Guide
+              <a class='px-1 font-bold' href='howto'>
+                HOWTO
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -571,7 +571,11 @@
     
       <!-- Variable bindings for this tree-->
   
-  
+    
+      
+    
+    
+
 
 
   
@@ -584,12 +588,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
         </path>
       </svg>
-      
+    
   
-    <a class='font-bold text-purple-600 hover:underline truncate' title='Creating package sets' href='package-set'>
+    <a class='hover:underline truncate' title='Creating package sets' href='package-set'>
       Creating package sets
     </a>
     
@@ -645,11 +649,7 @@
     
       <!-- Variable bindings for this tree-->
   
-    
-      
-    
-    
-
+  
 
 
   
@@ -662,12 +662,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
         </path>
       </svg>
-    
+      
   
-    <a class='hover:underline truncate' title='Using direnv to manage dev environments' href='direnv'>
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Using direnv to manage dev environments' href='direnv'>
       Using direnv to manage dev environments
     </a>
     
@@ -772,75 +772,57 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Creating package sets
+    Using direnv to manage dev environments
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      While haskell-flake is generally used to develop and build individual Haskell projects, you can also use it to create a custom Haskell packaage set that you can use in other projects. This is useful if you want to create a common package set to be shared across multiple projects.
+      <code class='py-0.5 px-0.5 bg-gray-100'>direnv</code>, and <a href='https://github.com/nix-community/nix-direnv' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nix-direnv</a> in particular, is an important piece of tool you can use to both persist nix devshell environments and to share it automatically with text editors and IDEs. It also obviates having to run <code class='py-0.5 px-0.5 bg-gray-100'>nix develop</code> manually every time you open a new terminal. The moment you <code class='py-0.5 px-0.5 bg-gray-100'>cd</code> into your project directory, the devshell is automatically activated, thanks to <code class='py-0.5 px-0.5 bg-gray-100'>direnv</code>.
     </p>
-  
+  <h2 id='starship' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Starship</h2>
     <p class='mb-3'>
-      A “project” in haskell-flake primarily serves the purpose of developing Haskell projects. Additionally, a project also exposes the final <em>package set</em> via the readonly option <code class='py-0.5 px-0.5 bg-gray-100'>outputs.finalPackages</code>. This package set includes the base packages (<code class='py-0.5 px-0.5 bg-gray-100'>basePackages</code>), the local packages as well as any <a href='dependency' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>dependency overrides</a> you set. Since we are are only interested in creating a new package set, we can use empty local packages and disable the dev shell:
+      It is recommended to use <a href='https://starship.rs/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>starship</a> along with nix-direnv, because it gives a visual indication of the current environment. For example, if you are in a <code class='py-0.5 px-0.5 bg-gray-100'>nix develop</code> shell, your terminal prompt to change to something like this:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
-  haskellProjects.ghc810 = {
-    packages = {};  # No local packages
-    devShell.enable = false;
-
-    # Start from nixpkgs's ghc8107 package set
-    basePackages = pkgs.haskell.packages.ghc8107;
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>srid on appreciate haskell-template on  master [!] via λ 9.2.6 via ❄️  impure (ghc-shell-for-haskell-template-0.1.0.0-0-env)
+❯</code></pre></div><h2 id='setup' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Setup</h2>
+    <p class='mb-3'>
+      If you use <a href='https://github.com/nix-community/home-manager' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>home-manager</a>, both <code class='py-0.5 px-0.5 bg-gray-100'>nix-direnv</code> and <code class='py-0.5 px-0.5 bg-gray-100'>starship</code> can be installed using the following configuration:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>programs.direnv = {
+  enable = true;
+  nix-direnv = {
+    enable = true;
   };
-}</code></pre></div>
+};
+programs.starship = {
+  enable = true;
+};</code></pre></div><h3 id='text-editor-configuration' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Text Editor configuration</h3><h4 id='vscode' class='mt-6 mb-2 text-2xl font-bold text-gray-700'>VSCode</h4>
     <p class='mb-3'>
-      You can access this package set as <code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.outputs.finalPackages</code>. But this is not terribly interesting, because it is the exact same as the package set <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskell.packages.ghc8107</code> from nixpkgs. So let’s add and override some packages in this set:
+      For VSCode, use <a href='https://marketplace.visualstudio.com/items?itemName=mkhl.direnv' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Martin Kühl’s direnv extension</a>.
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
-  haskellProjects.ghc810 = {
-    packages = {};  # No local packages
-    devShell.enable = false;
-
-    basePackages = pkgs.haskell.packages.ghc8107;
-
-    source-overrides = {
-      # New packages from flake inputs
-      mylib = inputs.mylib;
-      # Dependencies from Hackage
-      aeson = "1.5.6.0";
-      dhall = "1.35.0";
-    };
-    overrides = self: super: with pkgs.haskell.lib; {
-       aeson = doJailbreak super.aeson;
-    };
-  };
-}</code></pre></div>
+  <h4 id='doom-emacs' class='mt-6 mb-2 text-2xl font-bold text-gray-700'>Doom Emacs</h4>
     <p class='mb-3'>
-      This will create a package set that overrides the <code class='py-0.5 px-0.5 bg-gray-100'>aeson</code> and <code class='py-0.5 px-0.5 bg-gray-100'>dhall</code> packages using the specified versions from Hackage, but with the <code class='py-0.5 px-0.5 bg-gray-100'>aeson</code> package having the <code class='py-0.5 px-0.5 bg-gray-100'>doJailbreak</code> flag set (which relaxes its Cabal constraints). It also adds the <code class='py-0.5 px-0.5 bg-gray-100'>mylib</code> package which exists neither in nixpkgs nor in Hackage, but comes from somewhere arbitrary and specified as flake input.
+      Doom Emacs has the <a href='https://github.com/doomemacs/doomemacs/tree/master/modules/tools/direnv' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>:tools</code> <code class='py-0.5 px-0.5 bg-gray-100'>direnv</code> module</a> to automatically load the devshell environment when you open the project directory.
     </p>
-  
+  <h2 id='envrc' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'><code class='py-0.5 px-0.5 bg-gray-100'>.envrc</code></h2>
     <p class='mb-3'>
-      In your <em>actual</em> haskell project, you can use this package set (<code class='py-0.5 px-0.5 bg-gray-100'>config.haskellProjects.ghc810.outputs.finalPackages</code>) as its base package set:
+      To enable direnv on Flake-based projects, add the following to your <code class='py-0.5 px-0.5 bg-gray-100'>.envrc</code>:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
-  haskellProjects.myproject = {
-    packages.mypackage = ./.;
-
-    basePackages = config.haskellProjects.ghc810.outputs.finalPackages;
-  };
-}</code></pre></div>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='text language-text'>use flakes</code></pre></div>
     <p class='mb-3'>
-      Finally you can externalized this <code class='py-0.5 px-0.5 bg-gray-100'>ghc810</code> package set as either a flake-parts module or as a <a href='modules' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>haskell-flake module</a>, and import it in multiple repositories.
+      Now run <code class='py-0.5 px-0.5 bg-gray-100'>direnv allow</code> to authorize the current <code class='py-0.5 px-0.5 bg-gray-100'>.envrc</code> file. You can now <code class='py-0.5 px-0.5 bg-gray-100'>cd</code> into the project directory in a terminal and the devshell will be automatically activated.
     </p>
-  <h2 id='examples' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Examples</h2>
-    <ul class='my-3 ml-6 space-y-1 list-disc'>
-      
-        <li>
-          <a href='https://github.com/nammayatri/common/pull/3/files' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/nammayatri/common/pull/3/files</a>
-        </li>
-      
-    </ul>
+  <h2 id='reload-when-cabal-file-changes' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Reload when .cabal file changes</h2>
+    <p class='mb-3'>
+      Since both <a href='nixpkgs-haskell' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>nixpkgs</a> and <a href='start' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>haskell-flake</a> use Nix expressions that read the <code class='py-0.5 px-0.5 bg-gray-100'>.cabal</code> file to get dependency information, you will want the devshell be recreated every time a <code class='py-0.5 px-0.5 bg-gray-100'>.cabal</code> file changes. This can be achieved using the <code class='py-0.5 px-0.5 bg-gray-100'>nix_direnv_watch_file</code> function. Modify your <code class='py-0.5 px-0.5 bg-gray-100'>.envrc</code> to contain:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='text language-text'>nix_direnv_watch_file *.cabal
+use flake</code></pre></div>
+    <p class='mb-3'>
+      As a result of this whenever you change a <code class='py-0.5 px-0.5 bg-gray-100'>.cabal</code> file, direnv will reload the environment. If you are using VSCode, you will see a notification that the environment has changed, prompting you to restart it.
+    </p>
   
 
   <!-- What goes in this file will appear below the note body-->
