@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=0e3570e2-171c-4e1c-9f90-699d247a6d57' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=54357b9a-f42d-4944-96d9-160c67b56d73' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -429,8 +429,8 @@
     </a>
     
       
-        <span class='text-gray-300' title='1 children inside'>
-          1
+        <span class='text-gray-300' title='2 children inside'>
+          2
         </span>
       
     
@@ -752,11 +752,11 @@ nix flake init -t github:srid/haskell-flake#example</code></pre></div><h3 id='te
     </p>
   <h2 id='under-the-hood' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Under the hood</h2>
     <p class='mb-3'>
-      When nixifying a Haskell project without flake-parts (thus without haskell-flake) you would generally use two functions, called <a href='https://github.com/srid/haskell-multi-nix/blob/nixpkgs/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>callCabal2nix</code> and <code class='py-0.5 px-0.5 bg-gray-100'>shellFor</code></a>, from nixpkgs. For composing overlays, there are <code class='py-0.5 px-0.5 bg-gray-100'>pkgs.haskellPackages.extend</code> and <code class='py-0.5 px-0.5 bg-gray-100'>composeManyExtensions</code>. haskell-flake uses these functions, while exposing a simple modular API on top: your <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> becomes more <a href='https://github.com/srid/haskell-template/blob/304fb5a1adfb25c7691febc15911b588a364a5f7/flake.nix#L27-L39' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>declarative</a> and less <a href='https://github.com/srid/haskell-template/blob/3fc6858830ecee3d2fe1dfe9a8bfa2047cf561ac/flake.nix#L20-L79' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>imperative</a>.
+      When nixifying a Haskell project without flake-parts (thus without haskell-flake) you would generally use the <a href='nixpkgs-haskell' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>raw Haskell infrastructure from nixpkgs</a>. haskell-flake uses these functions, while exposing a simple modular API on top: your <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code> becomes more <a href='https://github.com/srid/haskell-template/blob/304fb5a1adfb25c7691febc15911b588a364a5f7/flake.nix#L27-L39' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>declarative</a> and less <a href='https://github.com/srid/haskell-template/blob/3fc6858830ecee3d2fe1dfe9a8bfa2047cf561ac/flake.nix#L20-L79' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>imperative</a>.
     </p>
   
     <p class='mb-3'>
-      In addition, haskell-flake supports:
+      In addition, compared to using plain nixpkgs, haskell-flake supports:
     </p>
   
     <ul class='my-3 ml-6 space-y-1 list-disc'>
@@ -802,6 +802,21 @@ nix flake init -t github:srid/haskell-flake#example</code></pre></div><h3 id='te
   
     <div class='pl-2 mt-2 border-l-2 border-purple-200 hover:border-purple-500'>
       <div><p><a href='https://github.com/srid/haskell-flake' class='text-gray-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>haskell-flake</a> is a <a href='https://flake.parts/' class='text-gray-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>flake-parts</a> module to make Haskell development <a href='start' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>simpler</a> with <a href='nix-rapid' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Nix</a>.</p></div>
+    </div>
+  
+</div>
+          
+        </li>
+      
+        <li>
+          <a class='text-purple-600 mavenLinkBold hover:bg-purple-50' href='nixpkgs-haskell'>
+            Nixifying a Haskell project using nixpkgs
+          </a>
+          
+            <div class='mb-4 overflow-auto text-sm text-gray-500'>
+  
+    <div class='pl-2 mt-2 border-l-2 border-purple-200 hover:border-purple-500'>
+      <div><p>This tutorial enables you to write a flake using nothing but <a href='https://zero-to-nix.com/concepts/nixpkgs' class='text-gray-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nixpkgs</a> to nixify an existing Haskell project. The tutorial serves a pedagogic purpose; in the real-world scenario, we recommend that you use haskell-flake (see <a href='start' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Getting Started</a>).</p></div>
     </div>
   
 </div>
