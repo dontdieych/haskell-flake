@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    HOWTO – haskell-flake
+    Auto formatting using treefmt – haskell-flake
   </title>
   
     
-      <meta property='og:description' content />
+      <meta property='og:description' content='treefmt provides an interface to run multiple code formatters at once, so you don’t have to run them manually for each file type.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='HOWTO' />
+      <meta property='og:title' content='Auto formatting using treefmt' />
     
     
       <base href='/' />
@@ -256,6 +256,15 @@
             <li class='inline-flex items-center'>
               <a class='px-1 font-bold' href=''>
                 haskell-flake
+              </a>
+              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
+                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
+              </svg>
+            </li>
+          
+            <li class='inline-flex items-center'>
+              <a class='px-1 font-bold' href='howto'>
+                HOWTO
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -604,7 +613,11 @@
             
               <!-- Variable bindings for this tree-->
   
-  
+    
+      
+      
+    
+
 
 
   
@@ -622,7 +635,7 @@
       </svg>
       
   
-    <a class='font-bold text-purple-600 hover:underline truncate' title='HOWTO' href='howto'>
+    <a class='font-bold hover:underline truncate' title='HOWTO' href='howto'>
       HOWTO
     </a>
     
@@ -714,11 +727,7 @@
     
       <!-- Variable bindings for this tree-->
   
-    
-      
-    
-    
-
+  
 
 
   
@@ -731,12 +740,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
         </path>
       </svg>
-    
+      
   
-    <a class='hover:underline truncate' title='Auto formatting using treefmt' href='treefmt'>
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Auto formatting using treefmt' href='treefmt'>
       Auto formatting using treefmt
     </a>
     
@@ -802,57 +811,108 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    HOWTO
+    Auto formatting using treefmt
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
-  <nav>
-  <div class='mb-8'>
-    <header data-nosnippet class='pb-2 mb-2 font-semibold text-gray-600'>
-      Pages matching path './*'
-    </header>
-    <ul>
+  
+    <p class='mb-3'>
+      <a href='https://github.com/numtide/treefmt' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>treefmt</a> provides an interface to run multiple <a href='https://en.wikipedia.org/wiki/Prettyprint' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>code formatters</a> at once, so you don’t have to run them manually for each file type.
+    </p>
+  <h2 id='writing-the-nix-to-configure-treefmt-in-your-project' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Writing the Nix to configure treefmt in your project</h2><h3 id='add-treefmt-and-flake-root-to-your-inputs' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Add treefmt and flake-root to your inputs</h3>
+    <p class='mb-3'>
+      The <a href='https://github.com/srid/flake-root' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>flake-root</code></a> module is needed to find the root of your project based on the presence of a file, by default it is <code class='py-0.5 px-0.5 bg-gray-100'>flake.nix</code>.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside `inputs`
+  treefmt-nix.url = "github:numtide/treefmt-nix";
+  flake-root.url = "github:srid/flake-root";
+}</code></pre></div><h3 id='import-flakemodule-output-of-treefmt-and-flake-root' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Import <code class='py-0.5 px-0.5 bg-gray-100'>flakeModule</code> output of treefmt and flake-root</h3><div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside outputs' `flake-parts.lib.mkFlake` 
+  imports = [
+    inputs.treefmt-nix.flakeModule
+    inputs.flake-root.flakeModule
+  ];
+}</code></pre></div><h3 id='configure-your-formatter' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Configure your formatter</h3>
+    <p class='mb-3'>
+      To actually enable the individual formatters you want to configure treefmt. The example configuration below only consists of formatters required by a haskell project using nix. Refer to <a href='https://numtide.github.io/treefmt/formatters/' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>treefmt-doc</a> for more formatters.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside mkFlake's `perSystem`
+  treefmt.config = {
+    inherit (config.flake-root) projectRootFile;
+    # This is the default, and can be overriden.
+    package = pkgs.treefmt;
+    # formats .hs files (fourmolu is also available)
+    programs.ormolu.enable = true;
+    # formats .nix files
+    programs.nixpkgs-fmt.enable = true;
+    # formats .cabal files
+    programs.cabal-fmt.enable = false;
+    # Suggests improvements for your code in .hs files
+    programs.hlint.enable = false;
+  };
+}</code></pre></div><h3 id='add-treefmt-to-your-devshell' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Add treefmt to your devShell</h3>
+    <p class='mb-3'>
+      Finally, add the resulting treefmt wrapper (<code class='py-0.5 px-0.5 bg-gray-100'>build.wrapper</code>) to your devShell. We also add the individual formatters (<code class='py-0.5 px-0.5 bg-gray-100'>build.programs</code>) to the devShell, so that they can be used directly in text editors and IDEs.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside mkFlake's `perSystem`
+  haskellProjects.default = {
+    devShell.tools = _: {
+      treefmt = config.treefmt.build.wrapper;
+    } // config.treefmt.build.programs;
+  };
+}</code></pre></div><h3 id='flake-check' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Flake check</h3>
+    <p class='mb-3'>
+      The <code class='py-0.5 px-0.5 bg-gray-100'>treefmt-nix</code> flake module automatically adds a flake check that can be evaluated to make sure that the project is already autoformatted.
+    </p>
+  <h2 id='tips' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Tips</h2><h3 id='exclude-folders' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Exclude folders</h3>
+    <p class='mb-3'>
+      If there are folders where you wouldn’t want to run the formatter on, use the following:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>  # Inside mkFlake's `perSystem.treefmt.config`
+  settings.formatter.&lt;formatter-name&gt;.excludes = [ "./foo/*" ];</code></pre></div><h3 id='use-a-different-package-for-formatter' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Use a different package for formatter</h3>
+    <p class='mb-3'>
+      The package shipped with the current nixpkgs might not be the desired one, follow the snippet below to override the package (assuming <code class='py-0.5 px-0.5 bg-gray-100'>nixpkgs-21_11</code> is present in your flake’s inputs).
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>  # Inside mkFlake's `perSystem.treefmt.config`
+  programs.ormolu.package = nixpkgs-21_11.haskellPackages.ormolu;</code></pre></div>
+    <p class='mb-3'>
+      The same can be applied to other formatters.
+    </p>
+  <h3 id='pass-additional-parameters-to-your-formatter' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Pass additional parameters to your formatter</h3>
+    <p class='mb-3'>
+      You might want to change a certain behaviour of your formatter by overriding by passing the input to the executable. The following example shows how to pass <code class='py-0.5 px-0.5 bg-gray-100'>ghc-opt</code> to ormolu:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>  # Inside mkFlake's `perSystem.treefmt.config`
+  settings.formatter.ormolu = {
+    options = [
+      "--ghc-opt"
+      "-XTypeApplications"
+    ];
+  };</code></pre></div>
+    <p class='mb-3'>
+      Ormolu requires this <code class='py-0.5 px-0.5 bg-gray-100'>ghc-opt</code> because unlike a lot of language extensions which are enabled by default, there are some which aren’t. These can be found using <code class='py-0.5 px-0.5 bg-gray-100'>ormolu --manual-exts</code>.
+    </p>
+  <h2 id='example' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Example</h2>
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
-          <div class='flex flex-wrap my-2'>
-            
-              <span data-nosnippet class='mr-2 text-right text-gray-600'>
-              </span>
-            
-            <a class='flex-1 text-purple-600 mavenLinkBold border-l-2 pl-2 hover:underline' href='direnv'>
-              Using direnv to manage dev environments
-            </a>
-          </div>
-        </li>
-      
-        <li>
-          <div class='flex flex-wrap my-2'>
-            
-              <span data-nosnippet class='mr-2 text-right text-gray-600'>
-              </span>
-            
-            <a class='flex-1 text-purple-600 mavenLinkBold border-l-2 pl-2 hover:underline' href='docker'>
-              Building a docker image
-            </a>
-          </div>
-        </li>
-      
-        <li>
-          <div class='flex flex-wrap my-2'>
-            
-              <span data-nosnippet class='mr-2 text-right text-gray-600'>
-              </span>
-            
-            <a class='flex-1 text-purple-600 mavenLinkBold border-l-2 pl-2 hover:underline' href='treefmt'>
-              Auto formatting using treefmt
-            </a>
-          </div>
+          <a href='https://github.com/srid/haskell-template/blob/a8b6d1f547d761ba392a31e644494d0eeee49c2a/flake.nix#L38-L55' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Sample treefmt config for your haskell project</a>
         </li>
       
     </ul>
-  </div>
-</nav>
+  <h2 id='upcoming' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Upcoming</h2>
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <code class='py-0.5 px-0.5 bg-gray-100'>treefmt</code> will provide a pre-commit mode to disable commit if formatting checks fail. This is tracked here: <a href='https://github.com/numtide/treefmt/issues/78' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/numtide/treefmt/issues/78</a>
+        </li>
+      
+    </ul>
+  
 
   <!-- What goes in this file will appear below the note body-->
 </article>
