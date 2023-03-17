@@ -30,7 +30,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=ae31b36d-744a-41d4-b173-8d83c91e7b0b' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=249cbff7-8a8f-40eb-9231-c23475c66a07' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -873,7 +873,11 @@
     <p class='mb-3'>
       To test your Nix install, run:
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>nix run nixpkgs#hello</code></pre></div><h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See also</h2>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='sh language-sh'>nix run nixpkgs#nix-info -- -m</code></pre></div>
+    <p class='mb-3'>
+      Note: If you are on an ARM-based Mac (like M1), the <code class='py-0.5 px-0.5 bg-gray-100'>system</code> field of <code class='py-0.5 px-0.5 bg-gray-100'>nix-info</code>’s output must say <code class='py-0.5 px-0.5 bg-gray-100'>"aarch64-darwin"</code>. If it instead says <code class='py-0.5 px-0.5 bg-gray-100'>"x86_64-darwin"</code>, it means that you have incorrectly installed Nix (i.e., under Rosetta).
+    </p>
+  <h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See also</h2>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
