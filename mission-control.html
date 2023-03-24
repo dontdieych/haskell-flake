@@ -5,15 +5,15 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Examples – haskell-flake
+    Devshell scripts using mission-control – haskell-flake
   </title>
   
     
-      <meta property='og:description' content />
+      <meta property='og:description' content='The mission-control flake-parts module enables creating a set of scripts or commands to run in the Nix dev shell. This makes it possible for the project’s user to locate all of the commands they need (to get started) in one place, often replacing the likes of Makefile or bin/ scripts.' />
       <meta property='og:site_name' content='haskell-flake' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Examples' />
+      <meta property='og:title' content='Devshell scripts using mission-control' />
     
     
       <base href='/' />
@@ -256,6 +256,15 @@
             <li class='inline-flex items-center'>
               <a class='px-1 font-bold' href=''>
                 haskell-flake
+              </a>
+              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
+                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
+              </svg>
+            </li>
+          
+            <li class='inline-flex items-center'>
+              <a class='px-1 font-bold' href='howto'>
+                HOWTO
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -718,11 +727,7 @@
     
       <!-- Variable bindings for this tree-->
   
-    
-      
-    
-    
-
+  
 
 
   
@@ -735,12 +740,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
         </path>
       </svg>
-    
+      
   
-    <a class='hover:underline truncate' title='Devshell scripts using mission-control' href='mission-control'>
+    <a class='font-bold text-purple-600 hover:underline truncate' title='Devshell scripts using mission-control' href='mission-control'>
       Devshell scripts using mission-control
     </a>
     
@@ -838,7 +843,11 @@
             
               <!-- Variable bindings for this tree-->
   
-  
+    
+      
+    
+    
+
 
 
   
@@ -851,12 +860,12 @@
     
     
       <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
         </path>
       </svg>
-      
+    
   
-    <a class='font-bold text-purple-600 hover:underline truncate' title='Examples' href='examples'>
+    <a class='hover:underline truncate' title='Examples' href='examples'>
       Examples
     </a>
     
@@ -880,32 +889,113 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-purple-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Examples
+    Devshell scripts using mission-control
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
   
+    <p class='mb-3'>
+      The <a href='https://github.com/Platonic-Systems/mission-control' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>mission-control</a> flake-parts module enables creating a set of scripts or commands to run in the Nix dev shell. This makes it possible for the project’s user to locate all of the commands they need (to get started) in one place, often replacing the likes of <code class='py-0.5 px-0.5 bg-gray-100'>Makefile</code> or <code class='py-0.5 px-0.5 bg-gray-100'>bin/</code> scripts.
+    </p>
+  <h2 id='usage' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Usage</h2>
+    <p class='mb-3'>
+      To use this module, add <code class='py-0.5 px-0.5 bg-gray-100'>mission-control</code> to <code class='py-0.5 px-0.5 bg-gray-100'>inputs</code>,
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside inputs
+  mission-control.url = "github:Platonic-Systems/mission-control";
+}</code></pre></div>
+    <p class='mb-3'>
+      and import its flakeModule:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside mkFlake
+  imports = [
+    inputs.mission-control.flakeModule
+  ];
+}</code></pre></div><h2 id='add-a-script' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Add a script</h2>
+    <p class='mb-3'>
+      Here we’ll show a sample of scripts that are particular useful when developing Haskell projects.
+    </p>
+  <h3 id='docs-hoogle' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Docs (Hoogle)</h3>
+    <p class='mb-3'>
+      We can add a convenient script to start Hoogle on project dependencies as follows. As a result, typing <code class='py-0.5 px-0.5 bg-gray-100'>, docs</code> in the dev shell will start Hoogle.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem
+  mission-control.scripts = {
+    docs = {
+      description = "Start Hoogle server for project dependencies";
+      exec = ''
+        echo http://127.0.0.1:8888
+        hoogle serve -p 8888 --local
+      '';
+      category = "Dev Tools";
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      The <code class='py-0.5 px-0.5 bg-gray-100'>exec</code> option can be either a shell script (string) or a Nix package. The <code class='py-0.5 px-0.5 bg-gray-100'>category</code> option defines the group that this script belongs to, when displayed in the menu.
+    </p>
+  <h3 id='cabal-repl' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>Cabal repl</h3>
+    <p class='mb-3'>
+      To start a cabal repl from your devShell on running <code class='py-0.5 px-0.5 bg-gray-100'>, repl</code>, use:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem
+  mission-control.scripts = {
+    repl = {
+      description = "Start the cabal repl";
+      exec = ''
+        cabal repl "$@"
+      '';
+      category = "Dev Tools";
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      <a href='https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'><code class='py-0.5 px-0.5 bg-gray-100'>"$@"</code></a> represents the command-line arguments passed to <code class='py-0.5 px-0.5 bg-gray-100'>, repl</code>. This allows us to pass custom arguments to <code class='py-0.5 px-0.5 bg-gray-100'>cabal repl</code>. For example, if you wish to run an executable <code class='py-0.5 px-0.5 bg-gray-100'>foo</code> from your project in cabal repl, you’d run <code class='py-0.5 px-0.5 bg-gray-100'>, repl exe:foo</code>. Similarly, to get into the repl for a library <code class='py-0.5 px-0.5 bg-gray-100'>bar</code> you’d run <code class='py-0.5 px-0.5 bg-gray-100'>, run lib:bar</code>.
+    </p>
+  <h3 id='treefmt' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>treefmt</h3>
+    <p class='mb-3'>
+      If you use the <a href='treefmt' class='text-purple-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>treefmt module</a> for autoformatting the source tree, you can alias it as <code class='py-0.5 px-0.5 bg-gray-100'>, fmt</code>:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{ 
+  # Inside perSystem
+  mission-control.scripts = {
+    fmt = {
+      description = "Format the source tree";
+      exec = config.treefmt.build.wrapper;
+      category = "Dev Tools";
+    };
+  };
+}</code></pre></div>
+    <p class='mb-3'>
+      Note that <code class='py-0.5 px-0.5 bg-gray-100'>exec</code> in this example is a Nix package.
+    </p>
+  <h2 id='tips' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Tips</h2><h3 id='wrappername' class='mt-6 mb-2 text-3xl font-bold text-gray-700'>wrapperName</h3>
+    <p class='mb-3'>
+      If you don’t wish to run your command using <code class='py-0.5 px-0.5 bg-gray-100'>, &lt;command&gt;</code> you can change the <code class='py-0.5 px-0.5 bg-gray-100'>,</code> to be any string of your choice by setting the option <code class='py-0.5 px-0.5 bg-gray-100'>wrapperName</code>, as follows:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='nix language-nix'>{
+  # Inside perSystem
+  mission-control = {
+    wrapperName = "s";
+  };
+}</code></pre></div><h2 id='upcoming' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Upcoming</h2>
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <a href='https://github.com/Platonic-Systems/mission-control/issues/4' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>Zsh and bash shell completion</a>
+        </li>
+      
+    </ul>
+  <h2 id='example' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Example</h2>
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
           <a href='https://github.com/srid/haskell-template/blob/master/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/haskell-template/blob/master/flake.nix</a>
-        </li>
-      
-        <li>
-          <a href='https://github.com/fpindia/fpindia-site/blob/master/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/fpindia/fpindia-site/blob/master/flake.nix</a>
-        </li>
-      
-        <li>
-          <a href='https://github.com/srid/haskell-multi-nix/blob/master/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/haskell-multi-nix/blob/master/flake.nix</a> (Demonstrates multiple local packages)
-        </li>
-      
-        <li>
-          <a href='https://github.com/srid/emanote/blob/master/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/emanote/blob/master/flake.nix</a>
-        </li>
-      
-        <li>
-          <a href='https://github.com/srid/ema/blob/master/flake.nix' class='text-purple-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://github.com/srid/ema/blob/master/flake.nix</a>
         </li>
       
     </ul>
@@ -914,7 +1004,7 @@
   <div class='flex items-center justify-center mt-2'>
   
     
-      <a class='text-gray-300 hover:text-purple-600 text-sm' title='Edit this page on GitHub' href='https://github.com/srid/haskell-flake/edit/master/doc/examples.md'>
+      <a class='text-gray-300 hover:text-purple-600 text-sm' title='Edit this page on GitHub' href='https://github.com/srid/haskell-flake/edit/master/doc/howto/mission-control.md'>
         <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
           <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'></path>
         </svg>
